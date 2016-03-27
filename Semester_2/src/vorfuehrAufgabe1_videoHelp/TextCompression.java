@@ -1,4 +1,4 @@
-package help;
+package vorfuehrAufgabe1_videoHelp;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
