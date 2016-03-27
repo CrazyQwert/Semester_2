@@ -10,7 +10,6 @@ public class TextCompressor {
 	public static void main(String[] args) throws java.io.IOException {
 		
 		BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
-		int inLen;
 		char[] in = new char[500];
 		char[] out = new char[256];
 		char tempIn;

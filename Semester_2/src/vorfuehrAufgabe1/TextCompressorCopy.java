@@ -13,7 +13,6 @@ public class TextCompressorCopy {
 	public static void main(String[] args) throws java.io.IOException {
 		
 		BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
-		int inLen;
 		char[] in = new char[500];
 		char[] out = new char[256];
 		char tempIn;
@@ -30,24 +29,23 @@ public class TextCompressorCopy {
 		}
 		
 		
-		//test
+		//output procedure
 		System.out.println();
 		System.out.print("Characters put in: ");
 		System.out.println(count);
 		
 		
 		//compression procedure
-		out = compress(in);
+		out = compress(in).clone();
 		
 		//calculating "compression rate"
 		double rate;
 		rate = 100 - (100.0 / (double)count) * (double)countOut;
 		
-		//test
+		//output procedure
 		System.out.print("Characters put out: ");
 		System.out.println(countOut);
 		
-		//output procedure
 		System.out.println();
 		System.out.println("\"Compression\" rate: ");
 		System.out.println(rate + "%");
