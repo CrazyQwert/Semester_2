@@ -14,7 +14,8 @@ public class Book {
 	public Book(String isbn, String title) {
 		this.isbn = isbn;
 		this.title = title;
-		this.condition = "new";
+		this.condition = "neu";
+		this.location = "Buecherregal";
 	}
 	
 	public Book(String author, String title, String isbn) {
@@ -88,28 +89,31 @@ public class Book {
 	
 	public void loanBook(String location) {
 		
-		if (this.location.equalsIgnoreCase("altpatpiercontainer")) {
+		if (this.location.equalsIgnoreCase("altpapiercontainer") == false) {
 			this.location = location;
+		} else {
+			System.out.println("Buch kann nicht mehr entliehen werden!");
 		}
 	}
 	
 	public void returnBook() {
-		this.location = "Buecherregal";
-		
-		if(this.condition.equalsIgnoreCase("neu")) {
-			this.condition = "gebraucht";
-		} else if(this.condition.equalsIgnoreCase("gebraucht")) {
-			this.condition = "ausgesondert";
-			this.location = "Altpapiercontainer";
+		if (this.location.equalsIgnoreCase("altpapiercontainer") == false) {
+			this.location = "Buecherregal";
+			if (this.condition.equalsIgnoreCase("neu")) {
+				this.condition = "gebraucht";
+			} else if (this.condition.equalsIgnoreCase("gebraucht")) {
+				this.condition = "ausgesondert";
+				this.location = "Altpapiercontainer";
+			} 
 		}
 	}
 	
 	public String toString() {
-		String output = ("Titel: " + this.title + ","  
-				+ "Autor(en): " +  this.author + ","
-				+ "ISBN: " + this.isbn + ","
-				+ "Veröffentlicht: " + this.year + ","
-				+ "Zustand: " + this.condition + ","
+		String output = ("Titel: " + this.title + ", "  
+				+ "Autor(en): " +  this.author + ", "
+				+ "ISBN: " + this.isbn + ", "
+				+ "Veröffentlicht: " + this.year + ", "
+				+ "Zustand: " + this.condition + ", "
 				+ "(Standort: " +this.location + ")"
 				);
 		
