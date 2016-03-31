@@ -11,7 +11,7 @@ public class Book {
 	
 	//constructors
 	
-	public Book(String isbn, String title) {
+	public Book(String title, String isbn) {
 		this.isbn = isbn;
 		this.title = title;
 		this.condition = "neu";
@@ -19,12 +19,12 @@ public class Book {
 	}
 	
 	public Book(String author, String title, String isbn) {
-		this(isbn, title);
+		this(title, isbn);
 		this.author = author;
 	}
 	
 	public Book(String author, String title, String isbn, int year) {
-		this(isbn, title);
+		this(title, isbn);
 		this.author = author;
 		this.year = year;
 	}
@@ -37,7 +37,9 @@ public class Book {
 	//setter and getter methods
 	
 	public void setIsbn(String isbn){
-		this.isbn = isbn;
+		if (testIsbn(isbn)) {
+			this.isbn = isbn;
+		}
 	}
 	
 	public String getIsbn(){
@@ -86,6 +88,85 @@ public class Book {
 	
 	
 	//methods
+	
+	boolean equals(Book otherBook) {
+		
+		boolean isEqual = false;
+		
+		if (otherBook instanceof Book) {
+			if (otherBook.getIsbn().equals(this.getIsbn())) {
+				isEqual = true;
+			}
+		}
+		
+		
+		return isEqual;
+	}
+	
+	/**
+	 * blabal
+	 * @param isbn
+	 * @return
+	 */
+	boolean testIsbn(String isbn) {
+		
+		boolean correctIsbn;
+		
+		int[] isbnNum = new int[13];
+		int count = 0;
+		int checkDigit;
+		int sum = 0;
+		int mod;
+		
+		//read ISBN
+		
+		for (int i = 0; i < isbn.length(); i++) {
+			if (Character.isDigit(isbn.charAt(i))) {
+				isbnNum[count] = isbn.charAt(i) - '0';
+				count++;
+			}
+		}
+		
+		//calculate check digit
+		
+		if (count == 13) {
+			mod = 10;
+			for (int i = 0; i < count - 1; i++) {
+				if ((i & 1) != 0) {
+					//is odd
+					isbnNum[i] *= 3;
+				}
+			} 
+		} else {
+			mod = 11;
+			for (int i = 0; i < count - 1; i++) {
+					//is odd
+					isbnNum[i] = isbnNum[i] * (i + 1);
+				}
+		}
+		
+		for (int i = 0; i < count - 1; i++) {
+			sum += isbnNum[i];
+		}
+		
+		if (count == 13) {
+			checkDigit = mod - (sum % mod);
+		} else {
+			checkDigit = sum % mod;
+		}
+		
+		
+		//check if check digit is correct
+		
+		if (isbnNum[count - 1] == checkDigit ) {
+			correctIsbn = true;
+		} else {
+			correctIsbn = false;
+			System.out.println("ISBN ist falsch!");
+		}
+		
+		return correctIsbn;
+	} //end testIsbn
 	
 	public void loanBook(String location) {
 		
