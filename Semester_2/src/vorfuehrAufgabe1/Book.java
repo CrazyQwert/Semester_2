@@ -140,7 +140,6 @@ public class Book {
 		} else {
 			mod = 11;
 			for (int i = 0; i < count - 1; i++) {
-					//is odd
 					isbnNum[i] = isbnNum[i] * (i + 1);
 				}
 		}

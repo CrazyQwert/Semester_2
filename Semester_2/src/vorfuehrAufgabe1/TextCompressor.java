@@ -52,7 +52,7 @@ public class TextCompressor {
 		
 		//calculating "compression rate"
 		double rate;
-		rate = 100 - (100.0 / (double)count) * (double)countOut;
+		rate = 100.0 - (100.0 / (double)count) * (double)countOut;
 		
 		//test
 		System.out.print("Characters put out: ");
