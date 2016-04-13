@@ -16,12 +16,13 @@ public class Controller {
 		String yn = "y";
 		int startScore = 1;
 		int score;
-		int activePlayer = 0;
-		int rounds = 3;
+		Player activePlayer;
+		int maxRounds = 3;
+		int currentRounds = 0;
 		int currentDice;
 		Dice newDice = new Dice();
-		boolean notYetWon = true;
 		
+		//adding / removing players
 		
 		while (yn.equalsIgnoreCase("y") || PlayerFactory.getPlayerCount() < minimumPlayers) {
 			System.out.println("There are currently " + PlayerFactory.getPlayerCount() + " player(s).");
@@ -34,26 +35,41 @@ public class Controller {
 			}
 		}
 		
+		//playing
+		
 		System.out.println("Spiel wird gestartet ...");
 		
-		score = startScore;
+		activePlayer = PlayerFactory.getPlayer(1);
 		
-		while (notYetWon) {
+		while (currentRounds < maxRounds) {
+			score = startScore;
 			do {
 				currentDice = newDice.roll();
-				System.out.println("Player " + PlayerFactory.getPlayer(activePlayer).getName() + " gets dice with "
+				System.out.println("Player " + activePlayer.getName() + " gets dice with "
 						+ currentDice + " points.");
-				activePlayer++;
-				if (activePlayer >= PlayerFactory.getPlayerCount()) {
-					activePlayer = 0;
-				}
+				activePlayer = PlayerFactory.getNext(activePlayer);	//next Player
 				score += currentDice;
 				System.out.println("The current score is: " + score);
 			} while (score < maxScore);
-			System.out.println("Player " + PlayerFactory.getPlayer(activePlayer).getName() + " wins the round.");
-			PlayerFactory.getPlayer(activePlayer).addPoints(1);
-			notYetWon = false;
+			//previous player has won
+			activePlayer = PlayerFactory.getPrevious(activePlayer);
+			//announcing round winner
+			System.out.println("Player " + activePlayer.getName() + " wins the round.");
+			System.out.println();
+			//adding point winner
+			PlayerFactory.getPlayer(PlayerFactory.getIndex(activePlayer)).addPoints();
+			currentRounds++;
+			activePlayer = PlayerFactory.getNext(activePlayer);
 		}
+		
+		//statistics
+		
+		for (int i = 0; i < PlayerFactory.getPlayerCount(); i++) {
+			System.out.println("The Player has scored " + PlayerFactory.getPlayer(i).getPoints()
+					+ "time(s)"
+					);
+		}
+		
 		
 	} //end main
 	
@@ -83,7 +99,7 @@ public class Controller {
 				addPlayers(Integer.parseInt(input.substring(4)));
 			}
 		} else if (input.toLowerCase().lastIndexOf("remove") > -1) {
-			PlayerFactory.destroyPlayer(Integer.parseInt(input.substring(7)));
+			PlayerFactory.destroyPlayer(Integer.parseInt(input.substring(7)) - 1);
 		}
 		
 		

@@ -4,7 +4,7 @@ public class Player {
 	
 	private String name;
 	private int points = 0;
-	private boolean hasWon = false;
+	private boolean isWinner = false;
 	
 	//constructor
 	
@@ -27,12 +27,20 @@ public class Player {
 		this.points = points;
 	}
 	
-	public void addPoints(int points) {
-		this.points += points;
+	public void addPoints() {
+		this.points += 1;
 	}
 	
 	public int getPoints() {
 		return this.points;
 	}
-
+	
+	public void setWinner() {
+		this.isWinner = true;
+	}
+	
+	public boolean getWinner() {
+		return this.isWinner;
+	}
+	
 }
