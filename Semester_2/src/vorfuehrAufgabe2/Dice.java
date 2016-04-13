@@ -29,11 +29,11 @@ public class Dice {
 
 	//methods
 	
-	public int generate() {
+	public int roll() {
 		int number;
 		Random randNumber = new Random();
 		
-		number = randNumber.nextInt(sides) + 1; //dummy
+		number = randNumber.nextInt(sides) + 1;
 		
 		return number;
 	}

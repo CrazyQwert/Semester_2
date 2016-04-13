@@ -3,8 +3,7 @@ package vorfuehrAufgabe2;
 public class Player {
 	
 	private String name;
-	private int points;
-	private int playerNumber;
+	private int points = 0;
 	private boolean hasWon = false;
 	
 	//constructor
@@ -13,10 +12,6 @@ public class Player {
 		this.name = name;
 	}
 	
-	public Player(String name, int playerNumer) {
-		this(name);
-		this.playerNumber = playerNumber;
-	}
 	
 	//setter and getter methods
 	
@@ -28,12 +23,16 @@ public class Player {
 		return this.name;
 	}
 	
-	public void setPlayerNumber(int playerNumber) {
-		this.playerNumber = playerNumber;
+	public void setPoints(int points) {
+		this.points = points;
 	}
 	
-	public int getPlayerNumber() {
-		return this.playerNumber;
+	public void addPoints(int points) {
+		this.points += points;
+	}
+	
+	public int getPoints() {
+		return this.points;
 	}
 
 }
