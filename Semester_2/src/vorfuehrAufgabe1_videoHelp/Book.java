@@ -141,7 +141,7 @@ public class Book {
 	//methods
 	
 	/**
-	 * Sets location of Book to defined loaction.
+	 * Sets location of Book to defined location.
 	 * @param location
 	 */
 	public void loanBook(String location) {
