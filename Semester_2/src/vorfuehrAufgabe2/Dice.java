@@ -5,6 +5,7 @@ import java.util.Random;
 public class Dice {
 	
 	private int sides;
+	private int diceTosses = 0;
 	
 	//Constructors
 	
@@ -26,6 +27,14 @@ public class Dice {
 		return sides;
 	}
 	
+	public void setDiceTosses(int tosses) {
+		this.diceTosses = tosses;
+	}
+	
+	public int getDiceTosses() {
+		return this.diceTosses;
+	}
+	
 
 	//methods
 	
@@ -34,6 +43,7 @@ public class Dice {
 		Random randNumber = new Random();
 		
 		number = randNumber.nextInt(sides) + 1;
+		this.diceTosses++;
 		
 		return number;
 	}
