@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import javax.swing.text.html.MinimalHTMLWriter;
 
 public class Controller {
 	
@@ -17,7 +16,7 @@ public class Controller {
 		int startScore = 1;
 		int score;
 		Player activePlayer;
-		int maxRounds = 2;
+		int maxRounds = 4;
 		boolean notYetWon = true;
 		int currentDice;
 		Dice newDice = new Dice();
@@ -73,6 +72,17 @@ public class Controller {
 		System.out.println();
 		System.out.println("The dice was tossed " + newDice.getDiceTosses() + " times.");
 		System.out.println();
+		
+		PlayerFactory.sort();
+		
+		for (int i = 0; i < PlayerFactory.getPlayerCount(); i++) {
+			int currentMaxScore = 0;
+			for (int j = 0; j < PlayerFactory.getPlayerCount(); j++) {
+				if(PlayerFactory.getPlayer(j).getPoints() > currentMaxScore) {
+					
+				}
+			}
+		}
 		
 		for (int i = 0; i < PlayerFactory.getPlayerCount(); i++) {
 			System.out.println(PlayerFactory.getPlayer(i).getName()
