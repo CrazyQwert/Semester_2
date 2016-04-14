@@ -13,12 +13,12 @@ public class Controller {
 		BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
 		int minimumPlayers = 2;
 		int maxScore = 21;
-		String yn = "y";
+		String yn = "y";	//String for yes/no answers
 		int startScore = 1;
 		int score;
 		Player activePlayer;
-		int maxRounds = 3;
-		int currentRounds = 0;
+		int maxRounds = 2;
+		boolean notYetWon = true;
 		int currentDice;
 		Dice newDice = new Dice();
 		
@@ -41,7 +41,7 @@ public class Controller {
 		
 		activePlayer = PlayerFactory.getPlayer(1);
 		
-		while (currentRounds < maxRounds) {
+		while (notYetWon) {
 			score = startScore;
 			do {
 				currentDice = newDice.roll();
@@ -54,20 +54,37 @@ public class Controller {
 			//previous player has won
 			activePlayer = PlayerFactory.getPrevious(activePlayer);
 			//announcing round winner
+			System.out.println();
 			System.out.println("Player " + activePlayer.getName() + " wins the round.");
 			System.out.println();
 			//adding point winner
 			PlayerFactory.getPlayer(PlayerFactory.getIndex(activePlayer)).addPoints();
-			currentRounds++;
+			for (int i = 0; i < PlayerFactory.getPlayerCount(); i++) {
+				if (PlayerFactory.getPlayer(i).getPoints() >= maxRounds) {
+					notYetWon = false;
+					activePlayer.setWinner(true);
+					System.out.println(activePlayer.getName() + " has won the game!!!");
+				}
+			}
 			activePlayer = PlayerFactory.getNext(activePlayer);
 		}
 		
 		//statistics
+		System.out.println();
+		System.out.println("The dice was tossed " + newDice.getDiceTosses() + " times.");
+		System.out.println();
 		
 		for (int i = 0; i < PlayerFactory.getPlayerCount(); i++) {
-			System.out.println("The Player has scored " + PlayerFactory.getPlayer(i).getPoints()
-					+ "time(s)"
+			System.out.println(PlayerFactory.getPlayer(i).getName()
+					+ " has scored " + PlayerFactory.getPlayer(i).getPoints()
+					+ " time(s)."
 					);
+			if (PlayerFactory.getPlayer(i).isWinner() == false) {
+				System.out.println("The Player would have had to score another "
+						+ (maxRounds - PlayerFactory.getPlayer(i).getPoints())
+						+ " point(s) to win the game."
+						);
+			}
 		}
 		
 		
