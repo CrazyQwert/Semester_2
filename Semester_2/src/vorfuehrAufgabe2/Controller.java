@@ -16,13 +16,32 @@ public class Controller {
 		int startScore = 1;
 		int score;
 		Player activePlayer;
-		int maxRounds = 4;
+		int maxRounds = 3;
 		boolean notYetWon = true;
 		int currentDice;
 		Dice newDice = new Dice();
 		
-		//adding / removing players
 		
+		//change game settings
+		System.out.println("Do you want to change the default game settings? (y/n)");
+		
+		if (keyboard.readLine().equalsIgnoreCase("y")) {
+			//setting score needed to win
+			System.out.println("Do you want to change the score needed to win? (y/n)");
+			if (keyboard.readLine().equalsIgnoreCase("y")) {
+				System.out.print("Enter new score: ");
+				maxScore = Integer.parseInt(keyboard.readLine());
+			}
+			//setting rounds to win
+			System.out.println("Do you want to change the rounds needed to win? (y/n)");
+			if (keyboard.readLine().equalsIgnoreCase("y")) {
+				System.out.print("Enter new round limit: ");
+				maxRounds = Integer.parseInt(keyboard.readLine());
+			} 
+		}
+		
+		
+		//adding / removing players
 		while (yn.equalsIgnoreCase("y") || PlayerFactory.getPlayerCount() < minimumPlayers) {
 			System.out.println("There are currently " + PlayerFactory.getPlayerCount() + " player(s).");
 			System.out.println("You need at least " + minimumPlayers + " players to play.");
@@ -35,7 +54,6 @@ public class Controller {
 		}
 		
 		//playing
-		
 		System.out.println("Spiel wird gestartet ...");
 		
 		activePlayer = PlayerFactory.getPlayer(1);
@@ -128,9 +146,6 @@ public class Controller {
 		} else if (input.toLowerCase().lastIndexOf("remove") > -1) {
 			PlayerFactory.destroyPlayer(Integer.parseInt(input.substring(7)) - 1);
 		}
-		
-		
-		
 	} //end editPlayers
 	
 	private static void addPlayers(int quantity) throws IOException {

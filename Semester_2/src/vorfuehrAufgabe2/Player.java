@@ -1,7 +1,5 @@
 package vorfuehrAufgabe2;
 
-import java.util.Comparator;
-
 
 public class Player {
 	
@@ -47,13 +45,4 @@ public class Player {
 	}
 
 
-	public void sort() {
-		for (int i = 0; i < PlayerFactory.getPlayerCount(); i++) {
-			for (int j = 0; j < PlayerFactory.getPlayerCount(); j++) {
-				if(PlayerFactory.getPlayer(i).points < PlayerFactory.getPlayer(j).points) {
-					
-				}
-			}
-		}
-	}
 }
