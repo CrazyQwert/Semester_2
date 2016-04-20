@@ -2,7 +2,7 @@ package vorfuehrAufgabe3;
 
 public class Decimatio {
 
-	static Person head;  static final int NUMPERSONS = 41; // Josephus plus 41 soldiers  
+	static Person head;  static final int NUMPERSONS = 42; // Josephus plus 41 soldiers  
 	static final int STEPWIDTH  = 10; // every 10th is to be killed 
 	
 	static void assembleRing(int n) {   // ...
