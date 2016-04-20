@@ -16,14 +16,16 @@ public class Decimatio {
 	
 	static void elimination(int step) {   // ...   
 		Person current = Person.getHead();
-		while (current.getNext().getNext() != current) {
+		Person next = current;
+		while (next.getNext().getNext() != next) {
 			for (int i = 0; i < step; i++) {
 				current = current.getNext();
 			}
 			current.destroy();
+			next = current.getNext();
 		}
 		System.out.println("Überlebende Personen haben die Nummern " + Person.getHead().getId() 
-			+ " und " + current.getNext().getId());
+			+ " und " + Person.getHead().getNext().getId());
 	}
 	
 	public static void main(String args[])  {
@@ -33,14 +35,6 @@ public class Decimatio {
 		System.out.println("Aufbau fertiggestellt...\n");  
 		elimination(STEPWIDTH);
 		
-		Person current = Person.getHead();
-		
-		while (current.getNext() != null) {
-			System.out.println(current.getId());
-			current = current.getNext();
-		}
-		
-		System.out.println(current.getId());
 	}
 	
 	public static Person add() {
