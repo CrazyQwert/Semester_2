@@ -123,8 +123,26 @@ public class Hotel {
 	}
 
 	private static void bookPersons(Room room) throws IOException {
-		// ------------ DIESER TEIL IST VON IHNEN ZU ERGÄNZEN -------------
-		
-		// ------------ DIESER TEIL IST VON IHNEN ZU ERGÄNZEN -------------
+		String userinput;
+		String name;
+		int age;
+		Person[] guests = room.getGuests();
+		BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
+		for (int i = 0; i < guests.length; i++) {
+			System.out.println("Name des Gastes " + (i + 1) + " (ENTER für Abbruch): ");
+			userinput = keyboard.readLine();
+			if (userinput.equals("")) {
+				break;
+			} else {
+				name = userinput;
+			}
+			
+			System.out.print("Alter (Drücken Sie ENTER zum überspringen): ");
+			if (userinput.equals("")) {
+				break;
+			} else {
+				age = Integer.parseInt(userinput);
+			}
+		}
 	}
 }
