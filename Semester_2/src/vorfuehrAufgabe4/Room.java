@@ -86,4 +86,22 @@ public abstract class Room {
 		this.daysBooked = 0;
 		return receipt;
 	}
+	
+	public String toString() {
+		String output = "Zimmernummer " + id + " (Kategorie: " + roomtype + ")";
+		
+		if (booked && guests.length > 1) {
+			output += " belegt von Gästen ";
+			for (int i = 1; i < guests.length; i++) {
+				output += guests[i].getName() + " ";
+			}
+			output += "und " + guests[guests.length - 1] + ".";
+		} else if (booked) {
+			output += "belegt von Gast " + guests[0].getName();
+		} else {
+			output += " nicht belegt.";
+		}
+		
+		return output;
+	}
 }
