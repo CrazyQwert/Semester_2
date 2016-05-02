@@ -14,7 +14,7 @@ public class RoomNode {
 	Room room;     // Zimmerobjekt (Typ: konkretes "Room"-Objekt (also SingleRoom, TwinRoom, etc.)
 	
 	public RoomNode(Room val){
-		next=null;
-		room=val;
+		next = null;
+		room = val;
 	}
 }
