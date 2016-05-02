@@ -6,6 +6,20 @@ public class Person {
 	private int age;
 	private boolean kid;
 	
+	//constructor(s)
+	
+	public Person(String name) {
+		this.name = name;
+	}
+	
+	public Person(String name, int age) {
+		this(name);
+		this.age = age;
+		if (age < 18) {
+			this.kid = true;
+		}
+	}
+	
 	//getter and setter
 	
 	public void setName(String name) {
