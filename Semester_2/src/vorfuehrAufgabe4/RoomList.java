@@ -41,7 +41,7 @@ public class RoomList { // Klasse zum Verwalten der Zimmer eines Hotels (einfach
 				temp = temp.next;
 		}
 
-		if(temp == null || temp.room.getRoomType()!= roomType || temp.room.getBooked()){
+		if(temp == null || temp.room.getRoomType() != roomType || temp.room.getBooked()){
 			System.out.println("Kein Zimmer der Kategorie " + roomType.toString() + " verfügbar.");
 			temp = null;
 		}
