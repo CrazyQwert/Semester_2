@@ -75,7 +75,7 @@ public abstract class Room {
 				}
 			}
 		}
-		return price * multi;
+		return price * multi * daysBooked;
 	}
 	
 	public String receiptClearRoom() {
