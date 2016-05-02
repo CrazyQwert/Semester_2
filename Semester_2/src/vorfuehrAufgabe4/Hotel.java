@@ -80,7 +80,8 @@ public class Hotel {
 	
 	private static void bookRoom() throws IOException {
 		System.out.println("Zimmer buchen und einchecken");
-		System.out.print("Bitte Zimmerkategorie auswählen (1...Einzelzimmer, 2...Doppelzimmer, 3...Familienzimmer, 4...Suite, S...Seminarraum): ");
+		System.out.print("Bitte Zimmerkategorie auswählen (1...Einzelzimmer, 2...Doppelzimmer," 
+				+ " 3...Familienzimmer, 4...Suite, S...Seminarraum): ");
 		char c = keyboard.readLine().toCharArray()[0];
 		
 		Room room = null;
