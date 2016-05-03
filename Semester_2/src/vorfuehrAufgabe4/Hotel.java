@@ -127,9 +127,18 @@ public class Hotel {
 		String name;
 		int age;
 		
-		//transfering reference
+		//transferring reference
 		Person[] guests = room.getGuests();
+		int days = 0;
 		BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
+		
+		
+		while (true) {
+			System.out.println("Zimmer verfügbar. Für wie viele Tage buchen (min 1): ");
+			days = Integer.parseInt(keyboard.readLine());
+			if (days > 0) break;
+			System.out.println("You have to stay at least for 1 day!");
+		}
 		
 		while (true) {
 			for (int i = 0; i < guests.length; i++) {
@@ -142,13 +151,19 @@ public class Hotel {
 				}
 
 				System.out.print("Alter (Drücken Sie ENTER zum überspringen): ");
+				userinput = keyboard.readLine();
 				if (userinput.equals("")) {
-					break;
+					age = -1;
 				} else {
 					age = Integer.parseInt(userinput);
 				}
-				if (guests[0] != null) break;
+				guests[i] = new Person(name, age);
 			} 
+			if (guests[0] != null) {
+				break;
+			}
 		}
+		
+		if (!room.book(guests, days)) System.out.println("Buchung nicht erfolgreich.");
 	}
 }
