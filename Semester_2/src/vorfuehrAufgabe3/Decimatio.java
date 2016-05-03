@@ -6,7 +6,6 @@ public class Decimatio {
 	static final int STEPWIDTH  = 10; // every 10th is to be killed 
 	
 	static void assembleRing(int n) {   // ...
-		//replace with .add method?
 		for (int i = 1; i <= n; i++) {
 			System.out.println("Person Nr. " + i + " eingefügt");   // ...
 			add();
