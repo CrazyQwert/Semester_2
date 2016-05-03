@@ -91,13 +91,18 @@ public abstract class Room {
 	
 	public String toString() {
 		String output = "Zimmernummer " + id + " (Kategorie: " + roomtype + ")";
+		int guestCount = 0;
 		
-		if (booked && guests.length > 1) {
+		for (int i = 0; i < guests.length; i++) {
+			if (guests[i] != null) guestCount++;
+		}
+		
+		if (booked && guestCount > 1) {
 			output += " belegt von Gästen ";
-			for (int i = 1; i < guests.length; i++) {
+			for (int i = 0; i < guestCount - 1; i++) {
 				output += guests[i].getName() + " ";
 			}
-			output += "und " + guests[guests.length - 1] + ".";
+			output += "und " + guests[guestCount - 1].getName() + ".";
 		} else if (booked) {
 			output += " belegt von Gast " + guests[0].getName();
 		} else {
