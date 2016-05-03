@@ -82,7 +82,9 @@ public abstract class Room {
 		String receipt = "Rechnung für Gast " + guests[0].getName() + ": " + calcPrice()
 			+ " für " + roomtype;
 		this.booked = false;
-		this.guests = null;
+		for (int i = 0; i < guests.length; i++) {
+			guests[i] = null;
+		}
 		this.daysBooked = 0;
 		return receipt;
 	}
