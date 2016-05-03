@@ -15,7 +15,7 @@ public class Person {
 	public Person(String name, int age) {
 		this(name);
 		this.age = age;
-		if (age < 18) {
+		if (age < 18 && age > 0) {
 			this.kid = true;
 		}
 	}
