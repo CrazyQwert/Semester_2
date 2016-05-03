@@ -7,7 +7,7 @@ public abstract class Room {
 	private int id;
 	private Person[] guests;
 	boolean booked = false;
-	int daysBooked;
+	int daysBooked = 0;
 	
 	//getter and setter
 	
@@ -97,7 +97,7 @@ public abstract class Room {
 			}
 			output += "und " + guests[guests.length - 1] + ".";
 		} else if (booked) {
-			output += "belegt von Gast " + guests[0].getName();
+			output += " belegt von Gast " + guests[0].getName();
 		} else {
 			output += " nicht belegt.";
 		}
