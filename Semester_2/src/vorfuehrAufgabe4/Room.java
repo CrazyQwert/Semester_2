@@ -54,7 +54,7 @@ public abstract class Room {
 	//methods
 	
 	public boolean book(Person[] guests, int days) {
-		if (booked) {
+		if (booked || guests[0] == null) {
 			return false;
 		} else {
 			this.guests = guests;
