@@ -6,8 +6,8 @@ public abstract class Room {
 	private double price;
 	private int id;
 	private Person[] guests;
-	boolean booked = false;
-	int daysBooked = 0;
+	private boolean booked = false;
+	private int daysBooked = 0;
 	
 	//getter and setter
 	
