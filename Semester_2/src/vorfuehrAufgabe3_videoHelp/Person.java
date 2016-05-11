@@ -30,7 +30,7 @@ public class Person {
 	
 	//methods
 	
-	public Person destory() {
+	public Person destroy() {
 		Person curr = Decimatio.head;
 		while(curr.getNext() != this) {
 			curr = curr.getNext();
