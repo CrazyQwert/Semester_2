@@ -11,8 +11,8 @@ package vorfuehrAufgabe3_videoHelp;
 public class Decimatio {
 
 	static Person head;
-	static final int NUMPERSONS = 42; // Josephus plus 41 Soldaten
-	static final int STEPWIDTH  = 10; // Jeder 10. soll eleminiert werden
+	static final int NUMPERSONS = 41; // Josephus plus 41 Soldaten
+	static final int STEPWIDTH  = 3; // Jeder 10. soll eleminiert werden
 
 	static void assembleRing(int n) {
 		Person curr;
@@ -41,7 +41,7 @@ public class Decimatio {
 			for (int i = 1; i < step; i++) {
 				curr = curr.getNext();
 			}
-			curr = curr.destory();
+			curr = curr.destroy();
 		}
 		System.out.println("Überlebende Personen haben die Nummern " 
 				+ head.getId() + " und " + head.getNext().getId());
