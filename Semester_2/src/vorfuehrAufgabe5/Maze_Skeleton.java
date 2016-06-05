@@ -82,38 +82,31 @@ public class Maze_Skeleton {
 	public boolean reachable(int x, int y) {
 		
 		
-		if (/*maze[x][y] != START_CHAR*/ true) {
+		if (maze[x][y] == END_CHAR) {
+			return true;				
+		}
+		
+		if (maze[x][y] != BLOCKED_CHAR && maze[x][y] != VISITED_CHAR) {
+			maze[x][y] = VISITED_CHAR;
 			
-			
-			if (maze[x][y] == END_CHAR) {
-				return true;				
-			}
-			
-			if (maze[x][y] != BLOCKED_CHAR && maze[x][y] != VISITED_CHAR) {
-				maze[x][y] = VISITED_CHAR;
-				
 
-				if (reachable(x + 1, y)) {
-					
-				} else if (reachable(x - 1, y)) {
-					
-				} else if (reachable(x, y + 1)) {
-					
-				} else if (reachable(x, y - 1)) {
-					
-				} else {
-					return false;
-				}
+			if (reachable(x + 1, y)) {
 				
-				return true;
+			} else if (reachable(x - 1, y)) {
+				
+			} else if (reachable(x, y + 1)) {
+				
+			} else if (reachable(x, y - 1)) {
 				
 			} else {
 				return false;
 			}
+			
+			return true;
+			
 		} else {
 			return false;
 		}
-		
 		
 	} 
 
