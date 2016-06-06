@@ -56,7 +56,7 @@ public class SnowFlake_Skeleton {
 		snowflake4.drawAt(50,300);
 		snowflake5.drawAt(450,220);
 
-		Turtle.showGraphics("ESE 2 Vorführaufgabe 5: Leise pieselt das Reh");		
+		Turtle.showGraphics("Leise pieselt das Reh");		
 	}
 
 	public void drawAt(int x, int y) {
