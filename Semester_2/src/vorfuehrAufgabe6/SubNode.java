@@ -4,6 +4,7 @@ public class SubNode extends BinaryNode {
 
 	public SubNode(ExpressionNode a, ExpressionNode b) {
 		super(a, b);
+		this.operator = '-';
 	}
 	
 	@Override
@@ -12,11 +13,4 @@ public class SubNode extends BinaryNode {
 		return value;
 	}
 	
-	@Override
-	public void print() {
-		a.print();
-		System.out.print(" - ");
-		b.print();
-	}
-
 }
