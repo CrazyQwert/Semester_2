@@ -1,6 +1,5 @@
 package vorfuehrAufgabe2_videoHelp;
 
-import java.util.Random;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
