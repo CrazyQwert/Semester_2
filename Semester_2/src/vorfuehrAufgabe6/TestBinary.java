@@ -31,14 +31,14 @@ public class TestBinary {
 		System.out.println(" = " +plus.compute());
 		
 		a  = new IntegerNode(2);
-		b  = new IntegerNode(30);
+		b  = new IntegerNode(-30);
 		c  = new IntegerNode(2);
 		d  = new IntegerNode(12);
 		e  = new IntegerNode(21);
 		IntegerNode f  = new IntegerNode(7);
 
 		// ( a - b ) * c + d * e / f
-		// ( 2 - 30 ) * 2 + 12 * 21 / 7 -> -20
+		// ( 2 - (-30) ) * 2 + 12 * 21 / 7 -> 100
 		
 		minus = new SubNode(a, b);
 		mult = new MultNode(minus, c);
