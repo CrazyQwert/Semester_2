@@ -14,7 +14,11 @@ public class IntegerNode extends ExpressionNode {
 
 	@Override
 	public void print() {
-		System.out.print(value);
+		if (value > 0) {
+			System.out.print(value);
+		} else {
+			System.out.print("(" + value + ")");
+		}
 	}
 	
 
