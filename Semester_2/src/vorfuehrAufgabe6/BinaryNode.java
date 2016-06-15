@@ -4,6 +4,7 @@ public class BinaryNode extends ExpressionNode {
 
 	ExpressionNode a;
 	ExpressionNode b;
+	char operator;
 
 	public BinaryNode(ExpressionNode a, ExpressionNode b) {
 		this.a = a;
@@ -13,7 +14,23 @@ public class BinaryNode extends ExpressionNode {
 	
 	@Override
 	public void print() {
-		// TODO Auto-generated method stub
+		if (a instanceof SubNode || a instanceof AddNode) {
+			System.out.print("( ");
+			a.print();
+			System.out.print(" )");
+		} else {
+			a.print();
+		}
+		System.out.print(" " + operator + " ");
+		
+		
+		if (b instanceof SubNode || b instanceof AddNode) {
+			System.out.print("( ");
+			b.print();
+			System.out.print(" )");
+		} else {
+			b.print();
+		}
 	}
 
 	@Override
