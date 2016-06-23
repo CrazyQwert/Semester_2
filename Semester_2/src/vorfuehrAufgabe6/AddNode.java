@@ -9,8 +9,7 @@ public class AddNode extends BinaryNode {
 	
 	@Override
 	public int compute() {
-		this.value = this.a.getValue() + this.b.getValue();
-		return value;
+		return this.a.getValue() + this.b.getValue();
 	}
 	
 }

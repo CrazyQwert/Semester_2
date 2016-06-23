@@ -9,7 +9,7 @@ public class BinaryNode extends ExpressionNode {
 	public BinaryNode(ExpressionNode a, ExpressionNode b) {
 		this.a = a;
 		this.b = b;
-		this.compute();
+		this.value = this.compute();
 	}
 	
 	@Override
