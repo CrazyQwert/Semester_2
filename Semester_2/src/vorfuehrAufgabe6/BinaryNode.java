@@ -1,5 +1,7 @@
 package vorfuehrAufgabe6;
 
+
+// bla
 public class BinaryNode extends ExpressionNode {
 
 	ExpressionNode a;
